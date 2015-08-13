@@ -24,7 +24,7 @@
 define filers::users_from_agent($etc_dir, $ensure='present') {
     include filers::remove_old_users_from_agent
     file { "/etc/cron.hourly/${name}_users_and_groups":
-        owner => root, group => 0, mode => 0755,
+        owner => root, group => 0, mode => '0755',
         content => template('filers/users_to_filer.cron'),
         ensure => $ensure,
     }
